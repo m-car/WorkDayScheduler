@@ -1,8 +1,8 @@
 var today = moment();
 var currentHour = today.format('H');
 var hourEl = document.querySelector('.hour');
-var hourText = hourEl.textContent;
-var timeArray = [];
+var task = localStorage.getItem('task');
+
 var testHour = 12;
 // Current day displayed at top of planner //
 $('#currentDay').text(today.format('dddd, MMMM Do YYYY'));
@@ -12,27 +12,52 @@ $('#currentDay').text(today.format('dddd, MMMM Do YYYY'));
 
 //TODO REPLACE testHour with currentHour
 $(".time-block").each(function(){ // THIS IS LIKE A FOR LOOP. VERY NICE
-    console.log($(this).attr("id"));
-    console.log(currentHour)
+    // console.log($(this).attr("id"));
+    // console.log(currentHour)
     if($(this).attr('id') < testHour){
-      console.log("match");
       $(this).addClass('past');
     }else if($(this).attr('id') == testHour){
       $(this).addClass('present');
     }else{
       $(this).addClass('future');
-      }
+    }
+    // var taskObject={
+    //   id : $(this).attr('id'),
+    //   task: $('textarea').val(),
+    // }
+    
 })
 
     
-    //time block onlick enters event
-    
-    //on savebtn click, enter data into local storage
-    $('.saveBtn').click(function(){
-      //  localStorage.setItem('textarea')
+    //On savebtn click, enter data into local storage
+    $('.saveBtn').click(function(event){
+      event.currentTarget.textContent
+      localStorage.setItem('task', $("textarea").val());
+        
     })
-    //on page refresh saved event persists
     
+    
+    //On page refresh, saved events persist
+    function renderLastTasks(){
+      var task = localStorage.getItem('task')
+      document.getElementById('09').children[1].textContent = task;
+
+    }
+    function init() {
+      // When the init function is executed, the code inside renderLastGrade function will also execute
+      renderLastTasks();
+    }
+    init();
+
+
+
+
+
+
+
+
+
+
     // timeArray.push($(this).attr('id'));
     ///TEST CASE//DELETE
     // var seconds = 0;
