@@ -5,10 +5,8 @@ This is a simple calender application that allows a user to save events for each
 This app will runs in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 The styling of the calendar changes depending on the hour of the day. 
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
-
 ## How to Use
-1. Point your browser to 
+1. Point your browser to https://m-car.github.io/WorkDayScheduler/
 2. Click into any of the colored boxes to enter a task for that hour. 
 
   <img src="assets\images\Capture.PNG" alt="capture" width ="300"/>
@@ -23,7 +21,7 @@ Happy Scheduling!
 
 ## TODO
 - Save individual text to unique portions of local storage, possibly through Local Storage Objects
-- Display correct saved text per time block
+- Display correct saved text per time block on page refresh. 
 
 
 ## Credits
