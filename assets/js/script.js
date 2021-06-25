@@ -2,6 +2,7 @@ var today = moment();
 var currentHour = today.format('H');
 var hourEl = document.querySelector('.hour');
 var task = localStorage.getItem('task');
+var buttonListEl = $('.saveBtn');
 
 var testHour = 12;
 // Current day displayed at top of planner //
@@ -21,27 +22,34 @@ $(".time-block").each(function(){ // THIS IS LIKE A FOR LOOP. VERY NICE
     }else{
       $(this).addClass('future');
     }
-    // var taskObject={
-    //   id : $(this).attr('id'),
-    //   task: $('textarea').val(),
-    // }
     
 })
 
-    
-    //On savebtn click, enter data into local storage
-    $('.saveBtn').click(function(event){
-      event.currentTarget.textContent
-      localStorage.setItem('task', $("textarea").val());
-        
+   //Saves taskID and text from text area to local storage
+  //  TODO: Make unique task objects...? 
+    buttonListEl.on('click', function(event){
+      
+      var tArea = $(this).prev().val();
+      var taskId = $(this).parent().attr('id');
+      localStorage.setItem('task',tArea);
+      localStorage.setItem('taskId', taskId);
+      console.log("button clicked");
+      console.log(tArea);
+      console.log(taskId);
     })
-    
     
     //On page refresh, saved events persist
     function renderLastTasks(){
       var task = localStorage.getItem('task')
+      var taskID = localStorage.getItem('id');
       document.getElementById('09').children[1].textContent = task;
-
+      document.getElementById('10').children[1].textContent = task;
+      document.getElementById('11').children[1].textContent = task;
+      document.getElementById('12').children[1].textContent = task;
+      document.getElementById('13').children[1].textContent = task;
+      document.getElementById('14').children[1].textContent = task;
+      document.getElementById('15').children[1].textContent = task;
+      document.getElementById('16').children[1].textContent = task;
     }
     function init() {
       // When the init function is executed, the code inside renderLastGrade function will also execute
