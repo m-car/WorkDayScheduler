@@ -1,8 +1,8 @@
 # Work Day Scheduler
 
 ## Description
-This is a simple calender application that allows a user to save events for each hour of the day
-This app will runs in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+This is a simple calender application that allows a user to save events for each hour of the day.
+This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 The styling of the calendar changes depending on the hour of the day. 
 
 ## How to Use
