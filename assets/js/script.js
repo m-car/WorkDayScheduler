@@ -3,26 +3,22 @@ var currentHour = today.format('H');
 var hourEl = document.querySelector('.hour');
 var task = localStorage.getItem('task');
 var buttonListEl = $('.saveBtn');
+// var testHour = 12;
 
-var testHour = 12;
 // Current day displayed at top of planner //
 $('#currentDay').text(today.format('dddd, MMMM Do YYYY'));
-/// $('#currentDay').text(currentHour);
+
 
 //Change color of time blocks based on hour 
 
-//TODO REPLACE testHour with currentHour
 $(".time-block").each(function(){ // THIS IS LIKE A FOR LOOP. VERY NICE
-    // console.log($(this).attr("id"));
-    // console.log(currentHour)
-    if($(this).attr('id') < testHour){
+    if($(this).attr('id') < currentHour){
       $(this).addClass('past');
-    }else if($(this).attr('id') == testHour){
+    }else if($(this).attr('id') == currentHour){
       $(this).addClass('present');
     }else{
       $(this).addClass('future');
     }
-    
 })
 
    //Saves taskID and text from text area to local storage
@@ -51,8 +47,8 @@ $(".time-block").each(function(){ // THIS IS LIKE A FOR LOOP. VERY NICE
       document.getElementById('15').children[1].textContent = task;
       document.getElementById('16').children[1].textContent = task;
     }
-    function init() {
-      // When the init function is executed, the code inside renderLastGrade function will also execute
+    
+    function init() {  
       renderLastTasks();
     }
     init();
